@@ -54,7 +54,7 @@ Here's an example of a sample response:
 
 {
   "articleId": "dc2fd2da-a667-4683-9013-1bc14edf4663",
-  "title": "",
+  "title": "Sam Altman’s Worldcoin Raises $115 Million in Round Led by Blockchain Capital",
   "link": "https://decrypt.co/142308/tools-for-humanity-115-million-series-c-funding-blockchain-capital",
   "translatedArticles": {},
   "metadata": {

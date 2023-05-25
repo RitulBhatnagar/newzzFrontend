@@ -10,7 +10,7 @@ async function fetchArticles() {
 
   $("article.linkbox, article.w-full").each((i, element) => {
     const title = $(element)
-      .find("a.linkbox__overlay span.font-medium")
+      .find("a.linkbox__overlay")
       .text()
       .trim();
     const link =
@@ -23,7 +23,6 @@ async function fetchArticles() {
 
     // Check if the link starts with "https://decrypt.co/price/"
     if (!link.startsWith("https://decrypt.co/price/")) {
-      console.log("title: ", title, link);
       const article = {
         articleId: uuid(),
         title,
