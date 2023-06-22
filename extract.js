@@ -9,10 +9,7 @@ async function fetchArticles() {
   const articleLinks = [];
 
   $("article.linkbox, article.w-full").each((i, element) => {
-    const title = $(element)
-      .find("a.linkbox__overlay")
-      .text()
-      .trim();
+    const title = $(element).find("a.linkbox__overlay").text().trim();
     const link =
       "https://decrypt.co" + $(element).find(".linkbox__overlay").attr("href");
     const category = $(element).find("p.text-cc-pink-2").text().trim();
@@ -27,13 +24,15 @@ async function fetchArticles() {
         articleId: uuid(),
         title,
         link,
-        translatedArticles: {},
+        imageURI: "",
+        translatedArticles: [],
         metadata: {
-          articleSource: "descrypt",
+          articleSource: "decrypt",
           articleBaseUrl: URL,
           articleTimeStampExtracted: Date.now(),
           category,
           articlePublishedOn,
+          tags: "",
         },
       };
 
