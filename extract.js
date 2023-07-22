@@ -33,6 +33,10 @@ async function fetchArticles() {
           category,
           articlePublishedOn,
           tags: "",
+          articleMetrics: {
+            articleLiked: Math.floor(Math.random() * 20),
+            articleDisliked: 0,
+          },
         },
       };
 

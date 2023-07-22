@@ -1,72 +1,121 @@
-# Decrypt Crypto Web Scraper
+# Decrypt Web Scraper Service
 
-This project is a web scraping application that fetches articles from the Decrypt website and sends them to an AWS SQS queue for further processing.
+Decrypt Web Scraper is an AWS-based serverless application written in Node.js. This service scrapes information from the [Decrypt Web3 portal](https://decrypt.co/news) and returns the article data as a JSON response.
 
-## Prerequisites
+## Pre-requisites
 
-- Node.js 14.x
-- AWS account
+- Node.js v14.x and npm (usually bundled with Node.js)
+- Configured AWS CLI with Admin privileges
 - Serverless Framework
 
-## Installation
+## Setup Instructions
 
-1. Clone the repository.
-2. Install the dependencies by running the following command:
+1. Install Serverless Framework globally:
 
-   ```bash
-   npm install
+```bash
+npm install -g serverless
+```
+
+2. Install the project dependencies:
+
+```bash
+npm install
+```
+
+## Deployment Steps
+
+To deploy the service, execute:
+
+```bash
+sls deploy
+```
+
+Upon successful deployment, you should see an output similar to this:
+
+```bash
+Serverless: Stack update finished...
+Service Information
+service: Decrypt-web-scrapper
+stage: tst
+region: us-east-1
+stack: Decrypt-web-scrapper-tst
+resources: 10
+api keys:
+  None
+endpoints:
+  GET -  https://phr2v83cuk.execute-api.us-east-1.amazonaws.com/tst/fetch-articles
+functions:
+  fetchArticles: Decrypt-web-scrapper-tst-fetchArticles
+layers:
+  None
+```
+
+## Running Tests
+
+Execute your tests locally using:
+
+```bash
+npm test
+```
 
 ## Usage
-To run the web scraping application locally, use the following command:
 
-- sls offline
+Access your deployed service by making a GET request:
 
-This will start the application on your local machine.
+```bash
+curl  https://phr2v83cuk.execute-api.us-east-1.amazonaws.com/tst/fetch-articles
+curl  https://9una8ongg1.execute-api.us-east-1.amazonaws.com/prd/fetch-articles
+```
 
-## Deployment
-To deploy the application to AWS Lambda, use the following command:
+The service will return a JSON object containing the scraped article data.
 
-- sls deploy --stage <stage>
+## JSON Response Structure
 
-Replace <stage> with the desired deployment stage (e.g., dev, prod).
+The `fetchArticles` function retrieves and processes data from each article found on the Decrypt Web3 page. The article data is structured as follows:
 
-# Configuration
-Before deploying the application, make sure to configure the following environment variables:
-
-- QUEUE_URL: The URL of the AWS SQS queue where the articles will be sent.
-- STAGE: The deployment stage (default is tst).
-These environment variables can be set in the serverless.yml file.
-
-## Endpoints
-The application provides the following endpoint:
-
-GET /fetch-articles: Fetches articles from the Decrypt website and sends them to the configured SQS queue.
-
-## Response Model
-The response from the /fetch-articles endpoint will have the following structure:
-
+```json
 {
-  "message": "Sent <number> articles to queue"
-}
-
-## Sample Response
-Here's an example of a sample response:
-
-{
-  "articleId": "dc2fd2da-a667-4683-9013-1bc14edf4663",
-  "title": "Sam Altman’s Worldcoin Raises $115 Million in Round Led by Blockchain Capital",
-  "link": "https://decrypt.co/142308/tools-for-humanity-115-million-series-c-funding-blockchain-capital",
+  "articleId": "UUID",
+  "title": "Article title",
+  "link": "URL",
+  "imageURI": "Image URL",
   "translatedArticles": {},
   "metadata": {
-    "articleSource": "descrypt",
-    "articleBaseUrl": "https://decrypt.co/news",
-    "articleTimeStampExtracted": 1685022264642,
-    "category": "Technology",
-    "articlePublishedOn": "May 25, 2023",
-    "author": "Jason Nelson",
-    "articleLastUpdatedOn": "N/A"
+    "articleSource": "Decrypt",
+    "articleBaseUrl": "Base URL",
+    "articleTimeStampExtracted": "Extraction timestamp",
+    "category": "Category",
+    "tags": "Tags",
+    "articleMetrics": {
+      "articleLiked": "Likes count",
+      "articleDisliked": "Dislikes count"
+    },
+    "author": "Author Name",
+    "articlePublishedOn": "Publication Date",
+    "articleLastUpdatedOn": "Last Update Date"
   },
-  "content": "Tools for Humanity, the technology company behind Worldcoin, ..."
+  "content": "Article content"
 }
+```
 
-The response includes the articleId, title, link, translatedArticles, metadata, and content fields.
+## Clean Up
+
+To undeploy the service:
+
+```bash
+sls remove
+```
+
+## Contributing
+
+Contributions are welcome. Please fork the repository and create a pull request for any bug fixes, features or improvements.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
+
+## Credits
+
+Many thanks to Decrypt for providing informative articles.
+
+**Disclaimer:** Ensure that your AWS credentials are correctly configured as per the [AWS CLI User guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html). The URLs and values provided in this README are for example purposes only. The provided code does not come with any guarantees or maintenance agreement.
