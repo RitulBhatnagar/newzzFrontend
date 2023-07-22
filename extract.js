@@ -25,7 +25,7 @@ async function fetchArticles() {
         title,
         link,
         imageURI: "",
-        translatedArticles: [],
+        translatedArticles: {},
         metadata: {
           articleSource: "decrypt",
           articleBaseUrl: URL,
