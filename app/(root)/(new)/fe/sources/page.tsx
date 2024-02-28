@@ -6,7 +6,7 @@ import axios from "axios"
 
 
 const Sources = () => {
-    const[sources, setSources] = useState([]);
+    const[sources, setSources] = useState<any[]>([])
     useEffect(() => {
        const fetchData = async () => {
           const response = await axios.get(`${process.env.API_KEY}/getSources`)

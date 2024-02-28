@@ -1,25 +1,20 @@
 {
   "pages": {
+    "/(root)/(routes)/source/[...name]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(root)/(routes)/source/[...name]/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(root)/(new)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/(new)/page.js"
-    ],
     "/(root)/(new)/fe/sources/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(root)/(new)/fe/sources/page.js"
-    ],
-    "/(root)/(routes)/source/[...name]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/(routes)/source/[...name]/page.js"
     ]
   }
 }

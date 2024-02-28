@@ -1,5 +1,4 @@
 {
-  "/(root)/(new)/page": "app/(root)/(new)/page.js",
-  "/(root)/(new)/fe/sources/page": "app/(root)/(new)/fe/sources/page.js",
-  "/(root)/(routes)/source/[...name]/page": "app/(root)/(routes)/source/[...name]/page.js"
+  "/(root)/(routes)/source/[...name]/page": "app/(root)/(routes)/source/[...name]/page.js",
+  "/(root)/(new)/fe/sources/page": "app/(root)/(new)/fe/sources/page.js"
 }
