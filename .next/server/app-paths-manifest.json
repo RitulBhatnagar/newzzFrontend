@@ -1,0 +1,6 @@
+{
+  "/(root)/(new)/fe/sources/page": "app/(root)/(new)/fe/sources/page.js",
+  "/(root)/(routes)/source/[...name]/page": "app/(root)/(routes)/source/[...name]/page.js",
+  "/(root)/(new)/page": "app/(root)/(new)/page.js",
+  "/(root)/(routes)/news/[...title]/page": "app/(root)/(routes)/news/[...title]/page.js"
+}
