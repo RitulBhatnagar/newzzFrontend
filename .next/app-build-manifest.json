@@ -20,11 +20,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(root)/(routes)/source/[...name]/page.js"
-    ],
-    "/(root)/(routes)/news/[...title]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/(routes)/news/[...title]/page.js"
     ]
   }
 }
