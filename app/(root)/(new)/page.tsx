@@ -102,7 +102,7 @@ const NewPage = () => {
                     <TextTruncate
                     line = {2.5}
                     element = "span"
-                    TextTruncate = "..."
+                    truncateText = "..."
                     text = {article?.subHeading}
                     />
                   </span>

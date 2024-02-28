@@ -27,7 +27,7 @@ const Page = () => {
   const source = params.name;
 
   const [data, setData] = useState<Article[]>([]);
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<string | any>(null);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const Page = () => {
                   <TextTruncate
                line = {3}
                element = "h4"
-               textTruncate = "..."
+               truncateText = "..."
                text = {article.title}
                   />
                 </h4>
@@ -104,8 +104,9 @@ const Page = () => {
               <TextTruncate
                 line = {10}
                 element = "p"
-                textTruncate = "..."
+                truncateText = "..."
                 text = {selectedArticle?.subHeading}
+                textTruncateChild={<a href="#">Read on</a>}
                 />
               </ModalBody>
               <ModalFooter>

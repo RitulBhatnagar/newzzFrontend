@@ -10,7 +10,7 @@ const Page = () => {
   const { title } = useParams();
   const decodedTitle = decodeURIComponent(title[0]);
   const slugifiedTitle = slugify(decodedTitle);
-  const [article, setArticle] = useState<Article[]>([])
+  const [article, setArticle] = useState<any>([])
   const fetchData = async() => {
     try{
       const response = await axios.get(
