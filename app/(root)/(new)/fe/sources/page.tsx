@@ -19,7 +19,7 @@ const Sources = () => {
 <div className="">
   <div className="flex flex-wrap mx-2">
     {sources.map((source, index) => (
-      <div key={source._id} className={`w-full sm:w-1/2 md:w-1/2 lg:w-1/3 px-2 mb-4 ${index === sources.length - 1 && sources.length % 3 !== 0 ? 'md:mx-auto' : ''}`}>
+      <div key={source._id} className= "w-full sm:w-1/2 md:w-1/2 lg:w-1/3 px-2 mb-4">
         <Link   href={`/source/${source._id}`}>
 
         <Card className="py-4 my-6 mx-5 bg-gray-100 cursor-pointer">
